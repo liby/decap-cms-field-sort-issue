@@ -1,0 +1,19 @@
+{
+  "isDisconnectable": false,
+  "dataType": "API-based",
+  "longName": "Long Example",
+  "isLegacyDomainForOauthUrl": true,
+  "name": "Example",
+  "isInBetaTesting": false,
+  "isCrm": false,
+  "isNewConnectionAllowed": true,
+  "isInitiateSsoEnabled": false,
+  "isWorkingInProgress": false,
+  "helpCenterUrl": "https://help.example.com",
+  "type": "example",
+  "isSsoToPartnerInProgress": false,
+  "isVendorReportCreatable": false,
+  "isSupportedSsoLoginAndImport": false,
+  "isLinkable": true,
+  "isSyncable": true
+}

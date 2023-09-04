@@ -1,0 +1,116 @@
+backend:
+  name: GitLab
+  auth_type: pkce
+  auth_endpoint: oauth/authorize
+
+local_backend: true
+media_folder: assets
+publish_mode: editorial_workflow
+collections:
+  - label: Provider
+    label_singular: Provider
+    name: provider
+    summary: '{{name}} - {{type}}'
+    folder: 'src/provider'
+    create: true
+    extension: json
+    identifier_field: type
+    fields:
+      - name: name
+        label: Name
+        widget: string
+        required: true
+      - name: longName
+        label: Long name
+        widget: string
+        required: false
+      - name: type
+        label: Type
+        widget: string
+        required: true
+      - name: dataType
+        label: Data type
+        widget: select
+        options: ['API-based', 'File-based']
+        required: true
+      - name: isLinkable
+        label: Is Linkable
+        widget: boolean
+        default: true
+        required: true
+      - name: isSyncable
+        label: Is syncable
+        widget: boolean
+        default: false
+        required: true
+      - name: isDisconnectable
+        label: Can the connection be disconnected
+        widget: boolean
+        default: true
+        required: true
+      - name: isSupportedSsoLoginAndImport
+        label: Does it support SSO login and then import data
+        widget: boolean
+        default: false
+        required: true
+      - name: isInitiateSsoEnabled
+        label: Is SSO to Partner Enabled
+        widget: boolean
+        default: false
+        required: true
+      - name: isSsoToPartnerInProgress
+        label: Is SSO to Partner in progress
+        widget: boolean
+        default: false
+        required: true
+      - name: isCrm
+        label: Is CRM
+        widget: boolean
+        default: false
+        required: true
+      - name: isVendorReportCreatable
+        label: Can generate vendor's Report
+        widget: boolean
+        default: false
+        required: true
+      - name: isWorkingInProgress
+        label: Is working in progress
+        widget: boolean
+        default: false
+        required: true
+      - name: isInBetaTesting
+        label: Currently in Beta testing
+        widget: boolean
+        default: true
+        required: true
+      - name: isHouseholdIdRequired
+        label: Whether householdId parameter is required when requesting  config API
+        widget: boolean
+        default: false
+        required: false
+      - name: isLegacyDomainForOauthUrl
+        label: Use legacy domain for Oauth URL
+        widget: boolean
+        default: false
+        required: false
+      - name: isNewConnectionAllowed
+        label: Is new connection allowed
+        widget: boolean
+        default: true
+        required: true
+      - name: oauthCallbackUrl
+        label: OAuth callback URL
+        widget: string
+        required: false
+      - name: oauthCallbackUrlForDevelopment
+        label: OAuth callback URL for development
+        widget: string
+        required: false
+      - name: websiteUrl
+        label: Website URL for the vendor
+        widget: string
+        required: false
+      - name: helpCenterUrl
+        label: Help Center URL for the vendor
+        widget: string
+        required: false

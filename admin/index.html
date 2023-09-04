@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Content Manager</title>
+</head>
+
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+
+<script>
+  function nanoid(t = 21) {
+    return crypto.getRandomValues(new Uint8Array(t))
+      .reduce(
+        (t, e) => (
+          t += (e &= 63) < 36 ? e.toString(36) : e < 62 ? (e - 26).toString(36).toUpperCase() : e > 62 ? '-' : '_'
+        ),
+        ''
+      )
+  }
+
+  const UuidWidget = createClass({
+    componentDidMount() {
+      const { value, onChange } = this.props;
+      if (!value) {
+        onChange(nanoid());
+      }
+    },
+
+    render() {
+      const { value, classNameWrapper, forID } = this.props;
+      return h(
+        'input',
+        {
+          type: 'text',
+          id: forID,
+          className: classNameWrapper,
+          disabled: true,
+          value: value,
+          style: { color: '#cdcdcd' }
+        },
+      );
+    },
+  })
+  CMS.registerWidget('uuid', UuidWidget)
+</script>
+
+</html>
